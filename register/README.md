@@ -166,7 +166,10 @@ wget https://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_s
 ./node_register_app.sh -e ~/developer/project/visual/infer/DEV_ENV_INFER_IEAM42_EDGE -c all -r rtsp://192.168.200.75:8554/rtsp -f sample/indu
 strial-control-room-640x360.mp4 -k tflite -m model/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip -v 2
 ```
-
+Jetson nano
+```
+./node_register_app.sh -e ~/developer/project/visual/infer/DEV_ENV_INFER_IEAM42_EDGE -c all -v 2 -k tflite -m model/tflite/1.0.0/tflite-model-1.0.0-mms.zip -f /var/local/horizon/sample/video/industrial-control-room-640x360.mp4
+```
 #### PyTorch Local
 
 `Intel NUC` Inference time 9-10 secs : pth_cpu
