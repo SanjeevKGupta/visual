@@ -183,7 +183,9 @@ Jetson nano
 * pth_cpu on Jetson Nano is very slow. In the three video streams below 70, 60, 84s etc secs detection time. Works but not could be better.
 
 ```
-./node_register_app.sh -e ~/developer/agent/visual/infer/DEV_ENV_INFER_IEAM42_EDGE -r rtsp://192.168.200.75:8554/rtsp,rtsp://192.168.200.79:8
+./node_register_app.sh -e ~/developer/project/visual/infer/DEV_ENV_INFER_IEAM42_EDGE -f /var/local/horizon/sample/video/industrial-control-room-640x360.mp4 -v 1 -k pth_cpu -m model/pth/pth-frcnn-resnet50-dct-facemask-kaggle-1.0.0-mms.zip
+
+./node_register_app.sh -e ~/developer/project/visual/infer/DEV_ENV_INFER_IEAM42_EDGE -r rtsp://192.168.200.75:8554/rtsp,rtsp://192.168.200.79:8
 554/rtsp -f /var/local/horizon/sample/video/industrial-control-room-640x360.mp4 -v 2 -k pth_cpu -m model/pth/pth-frcnn-resnet50-dct-facemask-
 kaggle-1.0.0-mms.zip 
 ```
