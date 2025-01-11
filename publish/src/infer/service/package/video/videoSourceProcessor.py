@@ -65,7 +65,7 @@ class VideoSourceProcessor:
             from package.detect.pth import PTHDetector
             from package.detect.pth import PTHOpenCV
 
-            videoSource.setDetector(PTHDetector(self.config, classes=["mask", "no_mask", "incorrect"]))
+            videoSource.setDetector(PTHDetector(self.config))
             opencv = PTHOpenCV()
             self.config.setDetectorInitialized(True)
 

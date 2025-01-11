@@ -89,8 +89,10 @@ class Config:
             zip_ref.extractall(self.defaultModelDir)
         
     def setPTHDefaults(self):
-        self.tool = "Pytorch OpenCV"
+        self.tool = "PyTorch OpenCV"
         self.modelPTH = None
+        # PTH has startup model in docker image built in at root
+        self.modelDir = "/"
         self.defaultModelDir = os.environ['APP_MODEL_DIR']
         self.defaultModelPTH = "default-" + os.environ['APP_MI_MODEL']
         self.modelObjectId = self.defaultModelPTH
@@ -386,3 +388,5 @@ class Config:
     def setReloadPTHModel(self, flag):
         self.reloadPTHModel = flag
     
+    def setModelDir(self, dir):
+        self.modelDir = dir

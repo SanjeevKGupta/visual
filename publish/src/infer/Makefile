@@ -47,6 +47,28 @@ vino-build:
 mi-mvi-build:
 	 envsubst < ./Dockerfile.mvi.$(ARCH) | docker build -t $(DOCKER_IMAGE_BASE_MI_MVI)_$(ARCH):$(SERVICE_VERSION_MI_MVI) . -f -
 
+pth-nx-run:
+	docker run -it --rm --gpus all --runtime nvidia \
+	-e APP_MODEL_FMWK="${APP_MODEL_FMWK}" \
+	-e APP_MODEL_DIR="${APP_MODEL_DIR}" \
+	-e APP_MI_MODEL="${APP_MI_MODEL}" \
+	-e APP_VIDEO_FILES="${APP_VIDEO_FILES}" \
+	-e APP_BIND_HORIZON_DIR="${APP_BIND_HORIZON_DIR}" \
+	-e APP_CAMERAS="${APP_CAMERAS}" \
+	-e APP_RTSPS="${APP_RTSPS}" \
+	-e APP_VIEW_COLUMNS="${APP_VIEW_COLUMNS}" \
+	-e DEVICE_ID="${DEVICE_ID}" \
+	-e DEVICE_NAME="${DEVICE_NAME}" \
+	-e DEVICE_IP_ADDRESS="${DEVICE_IP_ADDRESS}" \
+	-e SHOW_OVERLAY="${SHOW_OVERLAY}" \
+	-e PUBLISH_STREAM="${PUBLISH_STREAM}" \
+	-e MIN_CONFIDENCE_THRESHOLD="${MIN_CONFIDENCE_THRESHOLD}" \
+	-e HTTP_PUBLISH_STREAM_URL="${HTTP_PUBLISH_STREAM_URL}" \
+	-v "${APP_BIND_HORIZON_DIR}":"${APP_BIND_HORIZON_DIR}" \
+	--device "/dev/video0" \
+	--name inferservice \
+	$(DOCKER_IMAGE_BASE_PTH_NX)_$(ARCH):$(SERVICE_VERSION_PTH_NX)
+
 # Push the docker container to the DockerHub registry
 tflite-push:
 	docker login -u $(CR_DOCKER_USERNAME) -p $(CR_DOCKER_APIKEY) $(CR_DOCKER_HOST)

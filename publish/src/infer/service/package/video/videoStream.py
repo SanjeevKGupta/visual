@@ -1,4 +1,3 @@
-
 #
 # videoStream.py
 #
