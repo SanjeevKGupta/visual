@@ -2,7 +2,7 @@
 - [Download PTH Model](#downlaod-pth-model)
 
 ### Set ENV
-- Use as applicable for PyTorch
+- Use as applicable for your setup while using PyTorch
 ```
 export APP_BIND_HORIZON_DIR=/var/local/horizon
 export APP_HOST_IP_ADDRESS="<ip-address-of-host>"
