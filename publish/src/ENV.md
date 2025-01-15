@@ -1,4 +1,8 @@
-Use as applicable for PyTorch
+- [Set ENV](#set-env)
+- [Download PTH Model](#downlaod-pth-model)
+
+### Set ENV
+- Use as applicable for PyTorch
 ```
 export APP_BIND_HORIZON_DIR=/var/local/horizon
 export APP_HOST_IP_ADDRESS="<ip-address-of-host>"
@@ -17,4 +21,9 @@ export SHOW_OVERLAY="true"
 export PUBLISH_STREAM="true"
 export MIN_CONFIDENCE_THRESHOLD="0.8"
 export HTTP_PUBLISH_STREAM_URL="http://${APP_HOST_IP_ADDRESS}:${APP_HOST_PORT}/publish/stream"
+```
+
+### Downlaod PTH model 
+```
+wget https://download.pytorch.org/models/$APP_MI_MODEL
 ```
